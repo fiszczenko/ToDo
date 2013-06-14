@@ -1,9 +1,11 @@
+<% if can? :create, Task %>
 <%= form_for([list, list.tasks.build]) do |f| %>
-	<%= f.label :title %><br />
-	<%= f.text_field :title %><br />
+	<%= f.label :title %>
+	<%= f.text_field :title %>
 
-	<%= f.label :content %><br />
-	<%= f.text_field :content %><br />
+	<%= f.label :content %>
+	<%= f.text_field :content %>
 
-	<%= f.submit "Add task" %>
+	<%= f.submit "Add task", class: "btn btn-success" %>
+<% end %>
 <% end %>

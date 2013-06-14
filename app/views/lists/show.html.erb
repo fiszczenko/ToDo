@@ -1,15 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @list.title %></h1>
+<h3><%= @list.user.username.humanize %></h3>
 
-<p>
-	<b>Title:</b>
-	<%= @list.title %>
-</p>
-
-<p>
-	<b>Description:</b>
+<div id = "post-content">
 	<%= @list.description %>
-</p>
-
+</div>
 
 <%= render :partial => 'tasks/show.html.erb', :locals => { :list => @list } %>
 <%= render :partial => 'tasks/form.html.erb', :locals => { :list => @list } %>

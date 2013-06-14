@@ -13,6 +13,7 @@ gem 'devise'
 gem 'private_pub'
 gem 'thin'
 gem 'cancan'
+gem 'bootstrap-sass'
 
 
 group :development, :test do
