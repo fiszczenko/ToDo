@@ -23,7 +23,7 @@ describe ListsController do
   # This should return the minimal set of attributes required to create a valid
   # List. As you add validations to List, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "task" => "MyString" } }
+  let(:valid_attributes) { { "title" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe ListsController do
       it "assigns a newly created but unsaved list as @list" do
         # Trigger the behavior that occurs when invalid params are submitted
         List.any_instance.stub(:save).and_return(false)
-        post :create, {:list => { "task" => "invalid value" }}, valid_session
+        post :create, {:list => { "title" => "invalid value" }}, valid_session
         assigns(:list).should be_a_new(List)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         List.any_instance.stub(:save).and_return(false)
-        post :create, {:list => { "task" => "invalid value" }}, valid_session
+        post :create, {:list => { "title" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe ListsController do
         # specifies that the List created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        List.any_instance.should_receive(:update_attributes).with({ "task" => "MyString" })
-        put :update, {:id => list.to_param, :list => { "task" => "MyString" }}, valid_session
+        List.any_instance.should_receive(:update_attributes).with({ "title" => "MyString" })
+        put :update, {:id => list.to_param, :list => { "title" => "MyString" }}, valid_session
       end
 
       it "assigns the requested list as @list" do
@@ -128,7 +128,7 @@ describe ListsController do
         list = List.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         List.any_instance.stub(:save).and_return(false)
-        put :update, {:id => list.to_param, :list => { "task" => "invalid value" }}, valid_session
+        put :update, {:id => list.to_param, :list => { "title" => "invalid value" }}, valid_session
         assigns(:list).should eq(list)
       end
 
@@ -136,7 +136,7 @@ describe ListsController do
         list = List.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         List.any_instance.stub(:save).and_return(false)
-        put :update, {:id => list.to_param, :list => { "task" => "invalid value" }}, valid_session
+        put :update, {:id => list.to_param, :list => { "title" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

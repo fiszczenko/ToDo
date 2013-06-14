@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :list do
-    task "MyString"
-    done false
+    title "MyString"
   end
 end
