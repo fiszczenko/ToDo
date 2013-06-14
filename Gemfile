@@ -12,6 +12,7 @@ gem 'therubyracer'
 gem 'devise'
 gem 'private_pub'
 gem 'thin'
+gem 'cancan'
 
 
 group :development, :test do
