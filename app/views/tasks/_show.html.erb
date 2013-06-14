@@ -1,0 +1,15 @@
+<% if list.tasks.empty? %>
+	<h5>Tasks niet </h5>
+<% else %>
+	<% list.tasks.each do |task| %>
+		<p>
+		<b>Title:</b>
+		<%= task.title %>
+		</p>
+		<p>
+		<b>Content:</b>
+		<%= task.content %>
+		</p>
+	<% end %>
+<% end %>
+

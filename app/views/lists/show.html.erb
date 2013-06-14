@@ -11,7 +11,8 @@
 </p>
 
 
-
+<%= render :partial => 'tasks/show.html.erb', :locals => { :list => @list } %>
+<%= render :partial => 'tasks/form.html.erb', :locals => { :list => @list } %>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>

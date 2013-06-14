@@ -1,4 +1,7 @@
 class ListsController < ApplicationController
+
+	before_filter :authenticate_user!, :except => [:index, :show]
+	
 	def index
 		@lists = List.all
 	end
@@ -8,7 +11,7 @@ class ListsController < ApplicationController
 	end
 
 	def new
-		@list = List.new
+		@list = current_user.lists.new
 	end
 
 	def edit
@@ -16,7 +19,7 @@ class ListsController < ApplicationController
 	end
 
 	def create
-		@list = List.new(params[:list])
+		@list = current_user.lists.build(params[:list])
 
 		if @list.save
 			redirect_to @list, notice: 'List was successfully created.'
