@@ -14,6 +14,14 @@ gem 'private_pub'
 gem 'thin'
 
 
+group :development, :test do
+	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'factory_girl_rails'
+	gem 'annotate'
+end
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
