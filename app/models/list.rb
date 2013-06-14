@@ -1,3 +1,3 @@
 class List < ActiveRecord::Base
-  attr_accessible :title
+  attr_accessible :title, :description
 end
