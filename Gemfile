@@ -14,6 +14,7 @@ gem 'private_pub'
 gem 'thin'
 gem 'cancan'
 gem 'bootstrap-sass'
+gem 'faye'
 
 
 group :development, :test do

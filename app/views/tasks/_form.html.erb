@@ -1,5 +1,5 @@
 <% if can? :create, Task %>
-<%= form_for([list, list.tasks.build]) do |f| %>
+	<%= form_for([list, list.tasks.build], remote: true) do |f| %>
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 
@@ -9,3 +9,5 @@
 	<%= f.submit "Add task", class: "btn btn-success" %>
 <% end %>
 <% end %>
+
+<%= subscribe_to new_list_task_path(list) %>

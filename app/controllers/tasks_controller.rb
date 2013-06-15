@@ -7,7 +7,9 @@ class TasksController < ApplicationController
 		@task.list = @list
 		@task.user = current_user
 		@task.save
-		redirect_to list_path(@list)
+
+		@channel = new_list_task_path(@list)
+		render "create.js.erb"
 	end
 
 	def done
