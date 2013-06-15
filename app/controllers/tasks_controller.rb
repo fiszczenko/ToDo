@@ -7,9 +7,8 @@ class TasksController < ApplicationController
 		@task.list = @list
 		@task.user = current_user
 		@task.save
-
-		@channel = new_list_task_path(@list)
-		render "create.js.erb"
+		PrivatePub.publish_to "/lists/1", :message => "kutas"
+		render :nothing => true
 	end
 
 	def done
