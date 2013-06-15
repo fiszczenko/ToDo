@@ -6,6 +6,7 @@ ToDo::Application.routes.draw do
   end
 
   root :to 				=> "lists#index"
+  match '/done/:id' => "tasks#done", :as => :done, via: :get
 
 
 

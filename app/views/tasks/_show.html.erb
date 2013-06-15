@@ -5,13 +5,29 @@
 		<tr>
 			<th>Title</th>
 			<th>Content</th>
+			<% if (user_signed_in?) && (list.user_id == current_user.id)  %>
+				<th>Done?</th>
+				<th>Delete</th>
+			<% end %>
 		</tr>
-	<% list.tasks.each do |task| %>
-		<tr>
-			<td><%= task.title %></td>
-			<td><%= task.content %></td>
-		</tr>
-	<% end %>
-</table>
+		<% list.tasks.each do |task| %>
+			<tr>
+				<td><%= task.title %></td>
+				<td><%= task.content %></td>
+				<% if (user_signed_in?) && (task.user_id == current_user.id) %>
+					<td>
+						<% if task.done %>
+							<%= link_to "", "#", class: "icon-ok" %>
+						<% else %>
+							<%= link_to "", done_path(task), class: "icon-remove" %>
+						<% end %>
+					</td>
+					<td>
+						<%= link_to 'Destroy', list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning" %>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
 <% end %>
 

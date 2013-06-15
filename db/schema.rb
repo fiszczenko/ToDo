@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614101637) do
+ActiveRecord::Schema.define(:version => 20130614151619) do
 
   create_table "lists", :force => true do |t|
     t.string   "title"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(:version => 20130614101637) do
   create_table "tasks", :force => true do |t|
     t.string   "title"
     t.string   "content"
-    t.boolean  "done"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "list_id",    :default => 0, :null => false
-    t.integer  "user_id",    :default => 0, :null => false
+    t.boolean  "done",       :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "list_id",    :default => 0,     :null => false
+    t.integer  "user_id",    :default => 0,     :null => false
   end
 
   create_table "users", :force => true do |t|
