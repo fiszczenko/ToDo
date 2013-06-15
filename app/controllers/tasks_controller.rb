@@ -7,7 +7,7 @@ class TasksController < ApplicationController
 		@task.list = @list
 		@task.user = current_user
 		@task.save
-		PrivatePub.publish_to "/lists/1", :message => "kutas"
+		PrivatePub.publish_to "/lists/1/tasks", :message => "kutas"
 		render :nothing => true
 	end
 

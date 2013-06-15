@@ -1,12 +1,12 @@
 <% content_for(:custom_javascript_includes) do %>
 	<script type = "text/javascript">
-		PrivatePub.subscribe("/lists/1", function(data, channel){
+		PrivatePub.subscribe("/lists/1/tasks", function(data, channel){
 	$("#a").append("TARARARARARRA");
 });
 </script>
 <% end %>
 
-<div id = "a">dsadadad</div>
+<div id="a">dsadadad</div>
 
 <% if list.tasks.empty? %>
 	<h5>Tasks niet </h5>
