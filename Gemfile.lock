@@ -99,9 +99,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.7)
-    mysql2 (0.3.11)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
+    pg (0.15.1)
     polyglot (0.3.3)
     private_pub (1.0.3)
       faye
@@ -189,7 +189,7 @@ DEPENDENCIES
   factory_girl_rails
   faye
   jquery-rails
-  mysql2
+  pg
   private_pub
   rails (= 3.2.13)
   rspec-rails
