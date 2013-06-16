@@ -1,41 +1,38 @@
 <% content_for(:custom_javascript_includes) do %>
-	<%= subscribe_to "/lists/#{list.id}/" %>
+	<% if (user_signed_in?) && (list.id == current_user.id) %>
+		<%= subscribe_to "/lists/#{list.id}" %>
+	<% else %>
+		<%= subscribe_to "/lists/#{list.id}/unlogged" %>
+	<% end %>
 	<%= javascript_include_tag 'tasks.js' %>
 <% end %>
 
-<div id="a">dsadadad</div>
-
-<% if list.tasks.empty? %>
-	<h5>Tasks niet </h5>
-<% else %>
-	<table id = "tasks" class = "table table-stripped table-bordered">
+<table id = "tasks" class = "table table-stripped table-bordered">
+	<tr>
+		<th>Title</th>
+		<th>Content</th>
+		<% if (user_signed_in?) && (list.user_id == current_user.id)  %>
+			<th>Done?</th>
+			<th>Delete</th>
+		<% end %>
+	</tr>
+	<% list.tasks.each do |task| %>
 		<tr>
-			<th>Title</th>
-			<th>Content</th>
-			<% if (user_signed_in?) && (list.user_id == current_user.id)  %>
-				<th>Done?</th>
-				<th>Delete</th>
+			<td><%= task.title %></td>
+			<td><%= task.content %></td>
+			<% if (user_signed_in?) && (task.user_id == current_user.id) %>
+				<td>
+					<% if task.done %>
+						<%= link_to "", "#", class: "icon-ok" %>
+					<% else %>
+						<%= link_to "", done_path(task), class: "icon-remove" %>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to 'Destroy', list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning" %>
+				</td>
 			<% end %>
 		</tr>
-		<% list.tasks.each do |task| %>
-			<tr>
-				<td><%= task.title %></td>
-				<td><%= task.content %></td>
-				<% if (user_signed_in?) && (task.user_id == current_user.id) %>
-					<td>
-						<% if task.done %>
-							<%= link_to "", "#", class: "icon-ok" %>
-						<% else %>
-							<%= link_to "", done_path(task), class: "icon-remove" %>
-						<% end %>
-					</td>
-					<td>
-						<%= link_to 'Destroy', list_task_path(list, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning" %>
-					</td>
-				<% end %>
-			</tr>
-		<% end %>
-	</table>
-<% end %>
-
+	<% end %>
+</table>
 

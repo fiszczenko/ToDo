@@ -1,3 +1,7 @@
 <% publish_to "/lists/#{@list.id}" do %>
-	$("#a").append("TRATATAT");
+	$("#tasks").append('<tr><td><%= @task.title %></td><td><%= @task.content %></td><td><%= link_to "", done_path(@task), class: "icon-remove" %></td><td><%= link_to "Destroy", list_task_path(@list, @task), method: :delete, data: { confirm: "Are your sure?" }, class: "btn btn-warning" %></td></tr>');
+<% end %>
+
+<% publish_to "/lists/#{@list.id}/unlogged" do %>
+	$("#tasks").append("<tr><td><%= @task.title %></td><td><%= @task.content %></td></tr>");
 <% end %>
