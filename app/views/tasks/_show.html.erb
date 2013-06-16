@@ -1,5 +1,6 @@
 <% content_for(:custom_javascript_includes) do %>
 	<%= subscribe_to "/lists/#{list.id}/" %>
+	<%= javascript_include_tag 'tasks.js' %>
 <% end %>
 
 <div id="a">dsadadad</div>
