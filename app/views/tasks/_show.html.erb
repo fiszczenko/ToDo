@@ -1,9 +1,5 @@
 <% content_for(:custom_javascript_includes) do %>
-	<script type = "text/javascript">
-		PrivatePub.subscribe("/lists/1/tasks", function(data, channel){
-	$("#a").append("TARARARARARRA");
-});
-</script>
+	<%= subscribe_to "/lists/#{list.id}/" %>
 <% end %>
 
 <div id="a">dsadadad</div>

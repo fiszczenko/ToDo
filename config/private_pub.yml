@@ -1,10 +1,10 @@
 development:
-  server: "http://fayeserverexample.herokuapp.com/faye"
+  server: "http://ancient-hollows-3781.herokuapp.com/faye"
   secret_token: "secret"
 test:
-  server: "http://fayeserverexample.herokuapp.com/faye"
+  server: "http://ancient-hollows-3781.herokuapp.com/faye"
   secret_token: "secret"
 production:
-  server: "http://fayeserverexample.herokuapp.com/faye"
-  secret_token: "f9d6ff01f6a4de6a301ff3afe765546ce7c57b996c5536298bfcfb69f5090b1b"
+  server: "http://ancient-hollows-3781.herokuapp.com/faye"
+  secret_token: "f9d6ff01f6a4de6a301ff3afe765546c57c57b996c5536298bfcfb69f5090b1b"
   signature_expiration: 3600 # one hour
