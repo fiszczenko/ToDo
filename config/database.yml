@@ -22,10 +22,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
-  database: todo
-  username: rails
-  password: dupa.1
-  socket: /var/run/mysqld/mysqld.sock
+  adapter: postgresql
+  database: d96i0eh4a4gnsa
+  username: vqbcikxbylkhyp
+  password: LifZBwR6a4MGGAa3iTNf3aS7lt
+  host: ec2-23-21-130-51.compute-1.amazonaws.com
+  port: 5432
   pool: 5
   timeout: 5000
