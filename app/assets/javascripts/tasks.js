@@ -1,9 +1,10 @@
 $(document).ready(function(){
-	$(".icon-remove").click(function(){
+	$(document).on("click", ".icon-remove", function(e){
+		e.preventDefault();
 		var $link = $(this).attr("href");
+		$(this).attr("href","#");
 		$(this).attr("class", "icon-ok");
-		$(this).attr("href", "#");
-		$.get($link)
+		$.get($link);
 		return false;
 	});
 });
