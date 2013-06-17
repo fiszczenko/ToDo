@@ -15,5 +15,26 @@
 require 'spec_helper'
 
 describe Task do
-  pending "add some examples to (or delete) #{__FILE__}"
+	before { @task = Task.new(title: "Example", content: "Example content") }
+
+	subject { @task }
+
+	it { should respond_to(:title) }
+	it { should respond_to(:content) }
+	it { should respond_to(:done) }
+
+	it { should be_valid }
+
+	describe "title is not present" do
+		before { @task.title = "" }
+
+		it { should_not be_valid }
+	end
+
+	describe "content is not present" do
+		before { @task.content = "" }
+
+		it { should_not be_valid }
+	end
+
 end
