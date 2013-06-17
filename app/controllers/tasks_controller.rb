@@ -3,16 +3,20 @@ class TasksController < ApplicationController
 
 	def create
 		@list = List.find(params[:list_id])
-		@task = Task.new(params[:task])
-		@task.list = @list
-		@task.user = current_user
-		@task.save
+		if @list.user_id == current_user.id
+			@task = Task.new(params[:task])
+			@task.list = @list
+			@task.user = current_user
+			@task.save
+		end
 	end
 
 	def done
 		task = Task.find(params[:id])
-		task.done = true
-		task.save!
+		if @list.user_id == current_user.id
+			task.done = true
+			task.save!
+		end
 		render :nothing => true
 	end
 
