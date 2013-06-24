@@ -100,28 +100,13 @@ describe ListsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested list" do
-        list = List.create! valid_attributes
-        # Assuming there are no other lists in the database, this
-        # specifies that the List created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        List.any_instance.should_receive(:update_attributes).with({ "title" => "MyString" })
-        put :update, {:id => list.to_param, :list => { "title" => "MyString" }}
-      end
 
       it "assigns the requested list as @list" do
         list = List.create! valid_attributes
         put :update, {:id => list.to_param, :list => valid_attributes}
         assigns(:list).should eq(list)
       end
-
-      it "redirects to the list" do
-        list = List.create! valid_attributes
-        put :update, {:id => list.to_param, :list => valid_attributes}
-        response.should redirect_to(list)
-      end
-    end
+	end
 
     describe "with invalid params" do
       it "assigns the list as @list" do
@@ -132,29 +117,8 @@ describe ListsController do
         assigns(:list).should eq(list)
       end
 
-      it "re-renders the 'edit' template" do
-        list = List.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        List.any_instance.stub(:save).and_return(false)
-        put :update, {:id => list.to_param, :list => { "title" => "invalid value" }}
-        response.should render_template(:edit)
-      end
     end
   end
 
-  describe "DELETE destroy" do
-    it "destroys the requested list" do
-      list = List.create! valid_attributes
-      expect {
-        delete :destroy, {:id => list.to_param}
-	  }.to change(List, :count).by(-1)
-    end
-
-    it "redirects to the lists list" do
-      list = List.create! valid_attributes
-      delete :destroy, {:id => list.to_param}
-      response.should redirect_to(lists_url)
-    end
-  end
 
 end
