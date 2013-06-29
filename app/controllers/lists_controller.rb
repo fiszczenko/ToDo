@@ -9,6 +9,10 @@ class ListsController < ApplicationController
 
 	def show
 		@list = List.find(params[:id])
+		respond_to do |format|
+			format.html
+			format.xml
+		end
 	end
 
 	def new
